@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" type="image/ico" href="../datatables.net/favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, user-scalable=no">
+	<title>Customers</title>
+	<link rel="stylesheet" type="text/css" href="../https@cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="../https@cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="../https@cdn.datatables.net/select/1.3.3/css/select.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="../https@cdn.datatables.net/datetime/1.1.0/css/dataTables.dateTime.min.css">
+	<link rel="stylesheet" type="text/css" href="../https@cdn.datatables.net/keytable/2.6.2/css/keyTable.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="css/editor.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="css/demo.css">
+	<style type="text/css" class="init">
+	
+	div.DTE_Inline input {
+		border: none;
+		background-color: transparent;
+		padding: 0 !important;
+		font-size: 90%;
+	}
+
+	div.DTE_Inline input:focus {
+		outline: none;
+		background-color: transparent;
+	}
+
+	</style>
+	<script type="text/javascript" language="javascript" src="../https@code.jquery.com/jquery-3.5.1.js"></script>
+	<script type="text/javascript" language="javascript" src="../https@cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" language="javascript" src="../https@cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+	<script type="text/javascript" language="javascript" src="../https@cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script>
+	<script type="text/javascript" language="javascript" src="../https@cdn.datatables.net/datetime/1.1.0/js/dataTables.dateTime.min.js"></script>
+	<script type="text/javascript" language="javascript" src="../https@cdn.datatables.net/keytable/2.6.2/js/dataTables.keyTable.min.js"></script>
+	<script type="text/javascript" language="javascript" src="../https@cdn.datatables.net/buttons/1.7.1/js/buttons.colVis.min.js"></script>
+    <script type="text/javascript" language="javascript" src="../https@cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+	<script type="text/javascript" language="javascript" src="js/dataTables.editor.min.js"></script>
+	<script type="text/javascript" language="javascript" src="js/editor.mask.js"></script>
+	<script type="text/javascript" language="javascript" class="init">
+
+	
+var customersEditor ;
+var customersTable ;
+var jobsEditor ;
+var jobsTable ;
+var jobitemsEditor ;
+var jobitemsTable ;
+var jobeventsEditor ;
+var jobeventsTable ;
+var oldUnits ;
+var oldUnitprice ;
+var oldTotal ;
+
+
+$(document).ready(function() {
+	customersEditor = new $.fn.dataTable.Editor( {
+		ajax: "php/customers.php",
+		table: "#customers",
+		fields: [ {
+				label: "Contact:",
+				name: "contact"
+			}, {
+				label: "Company:",
+				name: "company"
+			}, {
+				label: "Address:",
+				name: "address"
+			}, {
+				label: "City:",
+				name: "city"
+			}, {
+				label: "State:",
+				name: "state"
+			}, {
+				label: "Zip:",
+				name: "zip"
+			}, {
+				label: "Phone:",
+				name: "phone",
+				type: "mask",
+				mask: "000-000-0000"
+			}, {
+				label: "Email:",
+				name: "email"
+			}
+		]
+	} );
+
+	customersTable = $('#customers').DataTable( {
+		dom: "Bfrtip",
+		ajax: "php/customers.php",
+		columns: [
+			{ data: "contact" },
+			{ data: "company" },
+			{ data: "address" },
+			{ data: "city" },
+			{ data: "state" },
+			{ data: "zip" },
+			{ data: "phone",
+				render: function ( toFormat ) {
+					return toFormat.toString().replace(
+						/(\d\d\d)(\d\d\d)(\d\d\d\d)/g, '$1-$2-$3'
+					);
+				}
+			},
+			{ data: "email",
+			  render: function (data) {
+				return "<a href='mailto:" + data + "'>" + data + "</a>" ;
+			  }
+			}
+		],
+		order: [[1, 'asc']],
+		stateSave: true ,
+		keys: {
+			editor:  customersEditor
+		},
+		select: {
+			style:    'single',
+			selector: 'td'
+		},
+		buttons: [
+			{ extend: "create", editor: customersEditor },
+			{ extend: "edit",   editor: customersEditor },
+			{ extend: "remove", editor: customersEditor },
+			"colvis"
+		]
+	} );
+
+	jobsEditor = new $.fn.dataTable.Editor( {
+		ajax: {
+			url: 'php/jobs.php',
+			data: function ( d ) {
+				var selected = customersTable.row( { selected: true } );
+	 
+				if ( selected.any() ) {
+					d.customerid = selected.data().id;
+				}
+			}
+		},
+		table: '#jobs',
+		fields: [ {
+				label: "ID:",
+				name: "jobs.id",
+				type: "hidden"
+			}, {
+				label: "Customer ID:",
+				name: "jobs.customerid",
+				type: "hidden" 
+			}, {
+				label: "Job Name:",
+				name: "jobs.jobname"
+			}, {
+				label: "Purchase Order:",
+				name: "jobs.purchaseorder"
+			}, {
+				label: "Invoice:",
+				name: "jobs.invoice"
+			}, {
+				label: "Status:",
+				name: "jobs.jobstatus",
+				type: "select"
+			}
+		]
+	} );
+
+	jobsTable = $('#jobs').DataTable( {
+		dom: 'Bfrtip',
+		ajax: {
+			url: 'php/jobs.php',
+			type: 'post',
+			data: function ( d ) {
+				var selected = customersTable.row( { selected: true } );
+	 
+				if ( selected.any() ) {
+					d.customerid = selected.data().id;
+				}
+			}
+		},
+		columns: [
+			{ data: 'jobs.id' },
+			{ data: 'jobs.jobname' },
+			{ data: 'jobs.purchaseorder' },
+			{ data: 'jobs.invoice' },
+			{ data: 'jobstatuses.jobstatus', editField: "jobs.jobstatus" }
+		],
+		order: [[0, 'desc']],
+		stateSave: true ,
+		keys: {
+			editor:  jobsEditor
+		},
+		select: {
+			style:    'single',
+			selector: 'td'
+		},
+		buttons: [
+			{ extend: 'create', editor: jobsEditor, enabled: false, init: function(dt) {
+				var that = this;
+				customersTable.on('select deselect', function() {
+					that.enable(customersTable.rows({selected: true}).any())
+				})
+			}},
+			{ extend: 'edit',   editor: jobsEditor },
+			{ extend: 'remove', editor: jobsEditor },
+			"colvis"
+		]
+
+
+	} );
+
+	jobitemsEditor = new $.fn.dataTable.Editor( {
+		ajax: {
+			url: 'php/jobitems.php',
+			data: function ( d ) {
+				var selected = jobsTable.row( { selected: true } );
+	 
+				if ( selected.any() ) {
+					d.jobid = selected.data().jobs.id;
+				}
+			}
+		},
+		table: '#jobitems',
+		fields: [ {
+				label: "Job ID:",
+				name: "jobitems.jobid",
+				type: "hidden" 
+			}, {
+				label: "Description:",
+				name: "jobitems.description"
+			}, {
+				label: "Units:",
+				name: "jobitems.units"
+			}, {
+				label: "Unit Price:",
+				name: "jobitems.unitprice"
+			}, {
+				label: "Total:",
+				name: "jobitems.total"
+			}
+		]
+	} );
+
+	jobitemsTable = $('#jobitems').DataTable( {
+		dom: 'Bfrtip',
+		ajax: {
+			url: 'php/jobitems.php',
+			type: 'post',
+			data: function ( d ) {
+				var selected = jobsTable.row( { selected: true } );
+	 
+				if ( selected.any() ) {
+					d.jobid = selected.data().jobs.id;
+				}
+			}
+		},
+		columns: [
+			{ data: 'jobitems.description' },
+			{ data: 'jobitems.units',
+			  className: "dt-right" 
+			},
+			{ data: 'jobitems.unitprice',
+			  render: $.fn.dataTable.render.number(',', '.', 5),
+			  className: "dt-right" 
+			},
+			{ data: 'jobitems.total', 
+			  render: $.fn.dataTable.render.number(',', '.', 2),
+			  className: "dt-right" 
+			}
+		],
+		stateSave: true ,
+		keys: {
+			editor:  jobitemsEditor
+		},
+		select: {
+			style:    'single',
+			selector: 'td'
+		},
+		buttons: [
+			{ extend: 'create', editor: jobitemsEditor, enabled: false, init: function(dt) {
+				var that = this;
+				jobsTable.on('select deselect', function() {
+					that.enable(jobsTable.rows({selected: true}).any())
+				})
+			}},
+			{ extend: 'edit',   editor: jobitemsEditor },
+			{ extend: 'remove', editor: jobitemsEditor },
+			"colvis"
+		],
+        "footerCallback": function ( row, data, start, end, display ) {
+            var api = this.api(), data;
+ 
+            // Total over all pages
+            total = api
+                .column( 3 )
+                .data()
+                .reduce( function (a, b) {
+                    return (parseFloat(a) + parseFloat(b)).toFixed(2) ;
+                }, 0 );
+ 
+            // Update footer
+            $( api.column( 3 ).footer() ).html(
+                'Total: $' + total 
+            );
+        }
+		
+
+
+	} );
+	jobeventsEditor = new $.fn.dataTable.Editor( {
+		ajax: {
+			url: 'php/jobevents.php',
+			data: function ( d ) {
+				var selected = jobsTable.row( { selected: true } );
+	 
+				if ( selected.any() ) {
+					d.jobid = selected.data().jobs.id;
+				}
+			}
+		},
+		table: '#jobevents',
+		fields: [ {
+				label: "Job ID:",
+				name: "jobevents.jobid",
+				type: "hidden" 
+			}, {
+				label: "Date:",
+				name: "jobevents.timestamp",
+				type: "hidden"
+			}, {
+				label: "Event:",
+				name: "jobevents.jobeventtypeid",
+				type: "select"
+			}, {
+				label: "Note:",
+				name: "jobevents.note"
+			}, {
+				label: "Qty:",
+				name: "jobevents.qty"
+			}
+		]
+	} );
+
+	jobeventsTable = $('#jobevents').DataTable( {
+		dom: 'Bfrtip',
+		ajax: {
+			url: 'php/jobevents.php',
+			type: 'post',
+			data: function ( d ) {
+				var selected = jobsTable.row( { selected: true } );
+	 
+				if ( selected.any() ) {
+					d.jobid = selected.data().jobs.id;
+				}
+			}
+		},
+		columns: [
+			{ data: 'jobevents.timestamp' },
+			{ data: 'jobeventtypes.jobeventtype', editField: "jobevents.jobeventtypeid" },
+			{ data: 'jobevents.note' },
+			{ data: 'jobevents.qty',
+			  className: "dt-right" 
+			}
+		],
+		stateSave: true ,
+		keys: {
+			editor:  jobeventsEditor
+		},
+		select: {
+			style:    'single',
+			selector: 'td'
+		},
+		buttons: [
+			{ extend: 'create', editor: jobeventsEditor, enabled: false, init: function(dt) {
+				var that = this;
+				jobsTable.on('select deselect', function() {
+					that.enable(jobsTable.rows({selected: true}).any())
+				})
+			}},
+			{ extend: 'edit',   editor: jobeventsEditor },
+			{ extend: 'remove', editor: jobeventsEditor },
+			"colvis"
+		],
+        "footerCallback": function ( row, data, start, end, display ) {
+            var api = this.api(), data;
+ 
+            // Total over all pages
+            total = api
+                .column( 3 )
+                .data()
+                .reduce( function (a, b) {
+                    return (parseFloat(a) + parseFloat(b)).toFixed(2) ;
+                }, 0 );
+ 
+            // Update footer
+            $( api.column( 3 ).footer() ).html(
+                'Total: ' + total 
+            );
+        }
+		
+
+
+	} );
+
+	customersTable.on( 'select', function () {
+		jobsTable.ajax.reload();
+		toggleDivJobs() ;
+	 
+		jobsEditor
+			.field( 'jobs.customerid' )
+			.def( customersTable.row( { selected: true } ).data().id );
+	} );
+	 
+	jobsTable.on( 'select', function () {
+		jobitemsTable.ajax.reload();
+		toggleDivJobitems() ;
+		jobitemsEditor
+			.field( 'jobitems.jobid' )
+			.def( jobsTable.row( { selected: true } ).data().jobs.id );
+
+		jobeventsTable.ajax.reload();
+		toggleDivJobevents() ;
+		jobeventsEditor
+			.field( 'jobevents.jobid' )
+			.def( jobsTable.row( { selected: true } ).data().jobs.id );
+		jobeventsEditor
+			.field( 'jobevents.timestamp' )
+			.def( '2021-03-05 12:12:12' );
+	} );
+
+	customersTable.on( 'deselect', function () {
+		jobsTable.ajax.reload();
+		toggleDivJobs() ;
+	} );
+
+	jobsTable.on( 'deselect', function () {
+		jobitemsTable.ajax.reload();
+		toggleDivJobitems() ;
+		jobeventsTable.ajax.reload();
+		toggleDivJobevents() ;
+	} );
+
+	customersEditor.on( 'submitSuccess', function () {
+		jobsTable.ajax.reload();
+	} );
+	 
+	jobsEditor.on( 'submitSuccess', function () {
+		customersTable.ajax.reload();
+		jobitemsTable.ajax.reload();
+		jobeventsTable.ajax.reload();
+	} );
+
+	jobitemsEditor.on( 'submitSuccess', function () {
+		jobsTable.ajax.reload();
+	} );
+
+	jobeventsEditor.on( 'submitSuccess', function () {
+		jobsTable.ajax.reload();
+	} );
+
+	$( jobitemsEditor.field( 'jobitems.units' ).input() ).on( 'keydown', function (e) {
+		jobitemsEditor.field('jobitems.total').val(jobitemsEditor.field('jobitems.units').val()*jobitemsEditor.field('jobitems.unitprice').val()) ;
+    } );
+	$( jobitemsEditor.field( 'jobitems.unitprice' ).input() ).on( 'keydown', function (e) {
+		jobitemsEditor.field('jobitems.total').val(jobitemsEditor.field('jobitems.units').val()*jobitemsEditor.field('jobitems.unitprice').val()) ;
+    } );
+	$( jobitemsEditor.field( 'jobitems.total' ).input() ).on( 'keydown', function (e) {
+		jobitemsEditor.field('jobitems.unitprice').val(jobitemsEditor.field('jobitems.total').val()/jobitemsEditor.field('jobitems.units').val()) ;
+    } );
+	
+	function toggleDivJobs() {
+		var selected = customersTable.row( { selected: true } );
+
+		if ( selected.any() ) {
+			$("#divJobs").show() ;
+		} else {
+			$("#divJobs").hide() ;
+		}
+	}
+	function toggleDivJobitems() {
+		var selected = jobsTable.row( { selected: true } );
+
+		if ( selected.any() ) {
+			$("#divJobitems").show() ;
+		} else {
+			$("#divJobitems").hide() ;
+		}
+	}
+	function toggleDivJobevents() {
+		var selected = jobsTable.row( { selected: true } );
+
+		if ( selected.any() ) {
+			$("#divJobevents").show() ;
+		} else {
+			$("#divJobevents").hide() ;
+		}
+	}
+
+	toggleDivJobs() ;
+	toggleDivJobitems() ;
+	toggleDivJobevents() ;
+
+} );
+
+
+
+	</script>
+</head>
+<body class="dt-example php">
+<div id="divCustomers" class="container">
+	<h3>Customers</h3>
+	<table id="customers" class="display" style="width:100%">
+		<thead>
+			<tr>
+				<th>Contact</th>
+				<th>Company</th>
+				<th>Address</th>
+				<th>City</th>
+				<th>State</th>
+				<th>Zip</th>
+				<th>Phone</th>
+				<th>Email</th>
+			</tr>
+		</thead>
+	</table>
+<br/><br/>
+</div>
+<div id="divJobs" class="container">
+	<h3>Jobs</h3>
+	<table id="jobs" class="display" style="width:100%">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Job Name</th>
+				<th>Purchase Order</th>
+				<th>Invoice</th>
+				<th>Status</th>
+			</tr>
+		</thead>
+	</table>
+</div>
+<br/><br/>
+<div id="divJobitems" class="container">
+	<h3>Job Items</h3>
+	<table id="jobitems" class="display" style="width:100%">
+		<thead>
+			<tr>
+				<th>Description</th>
+				<th>Units</th>
+				<th>Unit Price</th>
+				<th>Total</th>
+			</tr>
+		</thead>
+        <tfoot>
+            <tr>
+                <th colspan="3" style="text-align:right"></th>
+                <th></th>
+            </tr>
+        </tfoot>
+	</table>
+</div>
+<div id="divJobevents" class="container">
+	<h3>Job Events</h3>
+	<table id="jobevents" class="display" style="width:100%">
+		<thead>
+			<tr>
+				<th>Date</th>
+				<th>Event</th>
+				<th>Note</th>
+				<th>Hours</th>
+			</tr>
+		</thead>
+        <tfoot>
+            <tr>
+                <th colspan="3" style="text-align:right"></th>
+                <th></th>
+            </tr>
+        </tfoot>
+	</table>
+</div>
+</body>
+</html>
