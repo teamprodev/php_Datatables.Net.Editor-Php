@@ -1,0 +1,69 @@
+<?php
+
+$accession = $_POST['accession'];
+$PSR = $_POST['PSR'];
+$contacted = $_POST['contacted']; 
+$group_id = $_POST['group_id']; 
+
+
+$command = '/usr/bin/python3.7 -u /var/www/html/ted/api/addendum_writer_hybrid.1.3.py "' . $accession . '" "' . $PSR . '" "' . $contacted . '" "' . $group_id . '"';
+// echo $command;
+// echo "<br>";
+// $output = shell_exec($command);
+//$output = passthru($command);
+//$output = shell_exec($command.' > /dev/null &');
+// echo "<br>";
+//
+echo "Processing...please wait.. DO NOT CLOSE UNTIL COMPLETE";
+//Start timer
+$time_pre = microtime(true);
+
+//main processing
+while (@ ob_end_flush()); 
+
+$proc = popen($command, 'r');
+echo '<pre>';
+while(!feof($proc)) {
+	echo fread($proc, 4096);
+	@ flush();
+}
+echo '</pre>';
+
+$time_post = microtime(true);
+$exec_time = $time_post - $time_pre;
+
+//echo nl2br($output);
+echo "Completed! Run Time: " . date("i:s", $exec_time) ;
+echo '<br>';
+
+
+
+$msg = 'recipient=' . $group_id . '&body=Communication completed. Addendum with contact info is in your queue for signing';
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => 'https://developer.tigertext.me/v2/message/',
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => '',
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => 'POST',
+  CURLOPT_POSTFIELDS => $msg,
+  CURLOPT_HTTPHEADER => array(
+    'Content-Type: application/x-www-form-urlencoded',
+    'Authorization: Basic UXlYUUh3SUpwOGplVzdPVHY5eDBGZjk1bTdDekRTZXg6OVlNNzNPcXpOaXp2cjZpR2VUOE9FUW11ekJVNENyZ3FrNWdZbm5PaEt0QlE2UmN2'
+  ),
+));
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+echo $response;
+
+echo "You may close the window now" ;
+
+?>
+

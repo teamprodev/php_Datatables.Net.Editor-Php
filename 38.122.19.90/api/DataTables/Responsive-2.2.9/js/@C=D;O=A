@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /api/DataTables/Responsive-2.2.9/js</title>
+ </head>
+ <body>
+<h1>Index of /api/DataTables/Responsive-2.2.9/js</h1>
+  <table>
+   <tr><th valign="top"><img src="../../../../icons/blank.gif" alt="[ICO]"></th><th><a href="@C=N;O=A">Name</a></th><th><a href="@C=M;O=A">Last modified</a></th><th><a href="@C=S;O=A">Size</a></th><th><a href="@C=D;O=D">Description</a></th></tr>
+   <tr><th colspan="5"><hr></th></tr>
+<tr><td valign="top"><img src="../../../../icons/back.gif" alt="[PARENTDIR]"></td><td><a href="../default.htm">Parent Directory</a></td><td>&nbsp;</td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="../../../../icons/unknown.gif" alt="[   ]"></td><td><a href="dataTables.responsive.js">dataTables.responsive.js</a></td><td align="right">2021-06-20 15:24  </td><td align="right"> 40K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="../../../../icons/unknown.gif" alt="[   ]"></td><td><a href="dataTables.responsive.min.js">dataTables.responsive.min.js</a></td><td align="right">2021-06-20 15:24  </td><td align="right"> 16K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="../../../../icons/unknown.gif" alt="[   ]"></td><td><a href="responsive.bootstrap.js">responsive.bootstrap.js</a></td><td align="right">2021-06-20 15:24  </td><td align="right">2.0K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="../../../../icons/unknown.gif" alt="[   ]"></td><td><a href="responsive.bootstrap.min.js">responsive.bootstrap.min.js</a></td><td align="right">2021-06-20 15:24  </td><td align="right">3.6K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="../../../../icons/unknown.gif" alt="[   ]"></td><td><a href="responsive.bootstrap4.js">responsive.bootstrap4.js</a></td><td align="right">2021-06-20 15:24  </td><td align="right">2.0K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="../../../../icons/unknown.gif" alt="[   ]"></td><td><a href="responsive.bootstrap4.min.js">responsive.bootstrap4.min.js</a></td><td align="right">2021-06-20 15:24  </td><td align="right">3.6K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="../../../../icons/unknown.gif" alt="[   ]"></td><td><a href="responsive.bootstrap5.js">responsive.bootstrap5.js</a></td><td align="right">2021-06-20 15:24  </td><td align="right">2.1K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="../../../../icons/unknown.gif" alt="[   ]"></td><td><a href="responsive.bootstrap5.min.js">responsive.bootstrap5.min.js</a></td><td align="right">2021-06-20 15:24  </td><td align="right">3.6K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="../../../../icons/unknown.gif" alt="[   ]"></td><td><a href="responsive.bulma.js">responsive.bulma.js</a></td><td align="right">2021-06-20 15:24  </td><td align="right">2.1K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="../../../../icons/unknown.gif" alt="[   ]"></td><td><a href="responsive.bulma.min.js">responsive.bulma.min.js</a></td><td align="right">2021-06-20 15:24  </td><td align="right">3.7K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="../../../../icons/unknown.gif" alt="[   ]"></td><td><a href="responsive.dataTables.js">responsive.dataTables.js</a></td><td align="right">2021-06-20 15:24  </td><td align="right">846 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="../../../../icons/unknown.gif" alt="[   ]"></td><td><a href="responsive.dataTables.min.js">responsive.dataTables.min.js</a></td><td align="right">2021-06-20 15:24  </td><td align="right">551 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="../../../../icons/unknown.gif" alt="[   ]"></td><td><a href="responsive.foundation.js">responsive.foundation.js</a></td><td align="right">2021-06-20 15:24  </td><td align="right">1.8K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="../../../../icons/unknown.gif" alt="[   ]"></td><td><a href="responsive.foundation.min.js">responsive.foundation.min.js</a></td><td align="right">2021-06-20 15:24  </td><td align="right">1.1K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="../../../../icons/unknown.gif" alt="[   ]"></td><td><a href="responsive.jqueryui.js">responsive.jqueryui.js</a></td><td align="right">2021-06-20 15:24  </td><td align="right">1.4K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="../../../../icons/unknown.gif" alt="[   ]"></td><td><a href="responsive.jqueryui.min.js">responsive.jqueryui.min.js</a></td><td align="right">2021-06-20 15:24  </td><td align="right">800 </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="../../../../icons/unknown.gif" alt="[   ]"></td><td><a href="responsive.semanticui.js">responsive.semanticui.js</a></td><td align="right">2021-06-20 15:24  </td><td align="right">1.8K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="../../../../icons/unknown.gif" alt="[   ]"></td><td><a href="responsive.semanticui.min.js">responsive.semanticui.min.js</a></td><td align="right">2021-06-20 15:24  </td><td align="right">3.4K</td><td>&nbsp;</td></tr>
+   <tr><th colspan="5"><hr></th></tr>
+</table>
+<address>Apache/2.4.38 (Debian) Server at 38.122.19.90 Port 80</address>
+</body></html>

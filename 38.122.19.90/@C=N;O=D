@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /</title>
+ </head>
+ <body>
+<h1>Index of /</h1>
+  <table>
+   <tr><th valign="top"><img src="icons/blank.gif" alt="[ICO]"></th><th><a href="@C=N;O=A">Name</a></th><th><a href="@C=M;O=A">Last modified</a></th><th><a href="@C=S;O=A">Size</a></th><th><a href="@C=D;O=A">Description</a></th></tr>
+   <tr><th colspan="5"><hr></th></tr>
+<tr><td valign="top"><img src="icons/folder.gif" alt="[DIR]"></td><td><a href="wordpress/default.htm">wordpress/</a></td><td align="right">2020-02-06 01:33  </td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="icons/folder.gif" alt="[DIR]"></td><td><a href="testing/default.htm">testing/</a></td><td align="right">2021-03-16 11:22  </td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="icons/folder.gif" alt="[DIR]"></td><td><a href="ted/default.htm">ted/</a></td><td align="right">2022-11-10 22:23  </td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="icons/text.gif" alt="[TXT]"></td><td><a href="summit_RVU_to_echo.1.0.py">summit_RVU_to_echo.1.0.py</a></td><td align="right">2021-04-09 16:18  </td><td align="right"> 12K</td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="icons/folder.gif" alt="[DIR]"></td><td><a href="summit/default.htm">summit/</a></td><td align="right">2022-03-23 22:10  </td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="icons/folder.gif" alt="[DIR]"></td><td><a href="samplelogin/default.htm">samplelogin/</a></td><td align="right">2022-02-20 18:03  </td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="icons/folder.gif" alt="[DIR]"></td><td><a href="phpmyadmin/default.htm">phpmyadmin/</a></td><td align="right">2020-03-21 00:18  </td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="icons/folder.gif" alt="[DIR]"></td><td><a href="myworld/default.htm">myworld/</a></td><td align="right">2022-12-05 21:49  </td><td align="right">  - </td><td>&nbsp;</td></tr>
+<tr><td valign="top"><img src="icons/folder.gif" alt="[DIR]"></td><td><a href="api/default.htm">api/</a></td><td align="right">2022-11-23 23:24  </td><td align="right">  - </td><td>&nbsp;</td></tr>
+   <tr><th colspan="5"><hr></th></tr>
+</table>
+<address>Apache/2.4.38 (Debian) Server at 38.122.19.90 Port 80</address>
+</body></html>
