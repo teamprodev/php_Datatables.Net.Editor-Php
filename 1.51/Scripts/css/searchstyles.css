@@ -1,0 +1,197 @@
+@import url('../../../../../../fonts.googleapis.com/css@family=Archivo+Black');
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  outline: none;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html { overflow-y: scroll; }
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 62.5%;
+  line-height: 1;
+  color: #414141;
+  background: #444349 url('../images/bg.png'); /*http://subtlepatterns.com/stardust/ */
+  padding-bottom: 55px;
+}
+
+br { display: block; line-height: 1.6em; } 
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+ol, ul { list-style: none; }
+
+input, textarea { 
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: none; 
+}
+
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+strong, b { font-weight: bold; }
+em, i { font-style: italic; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+img { border: 0; max-width: 100%; }
+
+h1 {
+  font-size: 3.0em;
+  line-height: 1.55em;
+  margin-bottom: 10px;
+  color: #666;
+}
+
+p {
+  font-size: 1.4em;
+  line-height: 1.35em;
+  color: #414141;
+  margin-bottom: 15px;
+}
+
+a {
+  color: #3f7fa3;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/** page structure **/
+#w {
+  display: block;
+  width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  padding-bottom: 15px;
+  -webkit-border-bottom-left-radius: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  -moz-border-radius-bottomright: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+
+#topbar {
+  display: block;
+  height: 80px;
+  padding: 0 15px;
+  background: #fff;
+}
+
+#fullimg {
+  display: block;
+  width: 100%;
+  height: 360px;
+  background: url('../images/fullscreen-nintendo-building.jpg') no-repeat;
+  background-size: 100%;
+}
+
+#content {
+  display: block;
+  padding: 10px 15px;
+}
+
+/** heading bar **/
+#logo {
+  display: block;
+  float: left;
+  color: #454545;
+  font-size: 3.1em;
+  line-height: 80px;
+  font-family: 'Archivo Black', Helvetica, sans-serif;
+}
+
+#topnav {
+  display: block;
+  float: right;
+}
+#topnav ul { list-style: none; }
+#topnav ul li {
+  float: left;
+  font-weight: bold;
+}
+#topnav ul li a {
+  display: block;
+  float: left;
+  font-size: 1.2em;
+  line-height: 80px;
+  padding: 0 8px;
+  margin-right: 8px;
+  color: #363a3c;
+  text-decoration: none;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+#topnav ul li a:hover {
+  color: #458ba7;
+}
+
+#topnav ul li a#searchtoggl {
+  line-height: 73px;
+  margin-right: 0;
+  padding: 0 14px;
+}
+
+
+/** hidden search field **/
+#searchbar {
+  display: none;
+  float: left;
+  width: 100%;
+  height: 62px;
+  border-top: 1px solid #d8d8d8;
+  padding-left: 25px;
+  padding-right: 10px;
+  z-index: 9999;
+  background: #fff;
+  -webkit-box-shadow: -1px 2px 2px rgba(0,0,0,0.2);
+  -moz-box-shadow: -1px 2px 2px rgba(0,0,0,0.2);
+  box-shadow: -1px 2px 2px rgba(0,0,0,0.2);
+}
+
+#s {
+  display: block;
+  width: 88%;
+  border: 0;
+  outline: none;
+  padding: 0;
+  height: 60px;
+  line-height: 60px;
+  font-size: 3.0em;
+  font-weight: bold;
+  color: #676767;
+}
+
+#searchsubmit {
+  display: block;
+  float: right;
+  margin-top: 6px;
+  background: none;
+  color: #717171;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+}
+
+/** clearfix **/
+.clearfix:after { content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; }
+.clearfix { display: inline-block; }
+ 
+html[xmlns] .clearfix { display: block; }
+* html .clearfix { height: 1%; }
