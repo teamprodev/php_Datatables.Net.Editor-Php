@@ -1,0 +1,73 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "c78839718f90c0e31edb9de956523e65",
+    "packages": [
+        {
+            "name": "datatables.net/editor-php",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DataTables/Editor-PHP.git",
+                "reference": "1f84b08fcb0b6d6c0938e46f796bc3faa8eb6a34"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DataTables/Editor-PHP/zipball/1f84b08fcb0b6d6c0938e46f796bc3faa8eb6a34",
+                "reference": "1f84b08fcb0b6d6c0938e46f796bc3faa8eb6a34",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpstan/extension-installer": "^1.1",
+                "phpstan/phpstan": "1.4.5",
+                "phpstan/phpstan-deprecation-rules": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "composer.php"
+                ],
+                "psr-4": {
+                    "DataTables\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "SpryMedia Ltd",
+                    "homepage": "https://datatables.net"
+                }
+            ],
+            "description": "PHP server-side libraries for Editor",
+            "homepage": "https://editor.datatables.net",
+            "keywords": [
+                "datatables",
+                "editor",
+                "jquery"
+            ],
+            "support": {
+                "issues": "https://github.com/DataTables/Editor-PHP/issues",
+                "source": "https://github.com/DataTables/Editor-PHP/tree/2.1.0"
+            },
+            "time": "2023-02-03T15:55:54+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}

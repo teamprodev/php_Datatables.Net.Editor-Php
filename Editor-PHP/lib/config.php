@@ -10,8 +10,8 @@ ini_set('display_errors', '1');
  */
 $sql_details = array(
 	"type" => "Mysql",     // Database type: "Mysql", "Postgres", "Sqlserver", "Sqlite" or "Oracle"
-	"user" => "root",          // Database user name
-	"pass" => "",          // Database password
+	"user" => "mysql",          // Database user name
+	"pass" => "mysql",          // Database password
 	"host" => "localhost",   // Database host
 	"port" => "3306",          // Database connection port (can be left empty for default)
 	"db"   => "laravel_editor",          // Database name

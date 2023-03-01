@@ -1,0 +1,5 @@
+{
+    "require": {
+        "datatables.net/editor-php": "^2.1"
+    }
+}
