@@ -5,7 +5,8 @@
  */
 
 // DataTables PHP library
-include( "../../vendor/datatables.net/editor-php/DataTables.php" );
+include( "../../vendor/autoload.php" );
+include( "../ALL/DataTables.php" );
 
 // Alias Editor classes so they are easy to use
 use
@@ -17,7 +18,6 @@ use
 	DataTables\Editor\Upload,
 	DataTables\Editor\Validate,
 	DataTables\Editor\ValidateOptions;
-
 // Build our Editor instance and process the data coming from _POST
 Editor::inst( $db, 'datatables_demo' )
 	->fields(
@@ -32,7 +32,7 @@ Editor::inst( $db, 'datatables_demo' )
 		Field::inst( 'position' ),
 		Field::inst( 'email' )
 			->validator( Validate::email( ValidateOptions::inst()
-				->message( 'Please enter an e-mail address' )	
+				->message( 'Please enter an e-mail address' )
 			) ),
 		Field::inst( 'office' ),
 		Field::inst( 'extn' ),

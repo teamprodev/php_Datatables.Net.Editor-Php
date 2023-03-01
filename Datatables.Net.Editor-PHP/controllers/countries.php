@@ -1,7 +1,8 @@
 <?php
 
 // DataTables PHP library
-include( "../../vendor/datatables.net/editor-php/DataTables.php" );
+include( "../../vendor/autoload.php" );
+include( "../ALL/DataTables.php" );
 
 $values = $_REQUEST['values']['team.continent'];
 if (! $values) {
