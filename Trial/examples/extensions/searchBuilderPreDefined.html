@@ -34,7 +34,7 @@ var editor; // use a global for the submit and return data rendering in the exam
 
 $(document).ready(function() {
     editor = new $.fn.dataTable.Editor( {
-        "ajax": "../../controllers/staff.php",
+        "ajax": "../../../controllers/staff.php",
 		"table": "#example",
 		"fields": [ {
 				"label": "First name:",
@@ -65,7 +65,7 @@ $(document).ready(function() {
     $('#example').DataTable( {
         dom: "QBfrtip",
 		ajax: {
-			url: "../../controllers/staff.php",
+			url: "../../../controllers/staff.php",
 			type: "POST"
 		},
 		serverSide: true,
@@ -157,7 +157,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     editor = new $.fn.dataTable.Editor( {
-        &quot;ajax&quot;: &quot;../../controllers/staff.php&quot;,
+        &quot;ajax&quot;: &quot;../../../controllers/staff.php&quot;,
 		&quot;table&quot;: &quot;#example&quot;,
 		&quot;fields&quot;: [ {
 				&quot;label&quot;: &quot;First name:&quot;,
@@ -188,7 +188,7 @@ $(document).ready(function() {
     $('#example').DataTable( {
         dom: &quot;QBfrtip&quot;,
 		ajax: {
-			url: &quot;../../controllers/staff.php&quot;,
+			url: &quot;../../../controllers/staff.php&quot;,
 			type: &quot;POST&quot;
 		},
 		serverSide: true,

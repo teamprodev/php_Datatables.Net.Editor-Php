@@ -41,7 +41,7 @@ var editor; // use a global for the submit and return data rendering in the exam
 
 $(document).ready(function() {
 	editor = new $.fn.dataTable.Editor( {
-		ajax: "../../controllers/staff.php",
+		ajax: "../../../controllers/staff.php",
 		table: "#example",
 		fields: [ {
 				label: "First name:",
@@ -71,7 +71,7 @@ $(document).ready(function() {
 
 	$('#example').DataTable( {
 		dom: "Bfrtip",
-		ajax: "../../controllers/staff.php",
+		ajax: "../../../controllers/staff.php",
 		columns: [
 			{ data: null, render: function ( data, type, row ) {
 				// Combine the first and last names into a single table field
@@ -145,7 +145,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 	editor = new $.fn.dataTable.Editor( {
-		ajax: &quot;../../controllers/staff.php&quot;,
+		ajax: &quot;../../../controllers/staff.php&quot;,
 		table: &quot;#example&quot;,
 		fields: [ {
 				label: &quot;First name:&quot;,
@@ -175,7 +175,7 @@ $(document).ready(function() {
 
 	$('#example').DataTable( {
 		dom: &quot;Bfrtip&quot;,
-		ajax: &quot;../../controllers/staff.php&quot;,
+		ajax: &quot;../../../controllers/staff.php&quot;,
 		columns: [
 			{ data: null, render: function ( data, type, row ) {
 				// Combine the first and last names into a single table field
