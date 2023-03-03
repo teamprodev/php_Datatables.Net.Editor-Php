@@ -1,0 +1,1 @@
+{"data":[],"options":[],"files":[],"debug":[{"query":"SELECT  `id` as 'id', `first_name` as 'first_name', `last_name` as 'last_name', `phone` as 'phone', `city` as 'city' FROM  `staff_newyork` ","bindings":[]}]}

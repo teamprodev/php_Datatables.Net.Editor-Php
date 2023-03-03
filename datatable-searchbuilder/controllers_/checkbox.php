@@ -1,0 +1,1 @@
+{"data":[{"DT_RowId":"row_71","first_name":"","last_name":"","phone":"","city":"","zip":"","active":"1"},{"DT_RowId":"row_75","first_name":"Testing","last_name":"dddd","phone":"0123456789","city":"","zip":"","active":"1"},{"DT_RowId":"row_77","first_name":"TGasd","last_name":"tearaed","phone":"123213212","city":null,"zip":null,"active":null}],"options":[],"files":[]}
